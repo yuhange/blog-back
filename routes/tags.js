@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require("fs");
 
-router.get('/tags', function(req, res, next) {
+router.get('/', function(req, res, next) {
   var json = {
       data: [
         {
