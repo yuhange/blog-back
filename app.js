@@ -12,6 +12,7 @@ var tags = require('./routes/tags');
 var categories = require('./routes/categories');
 var users = require('./routes/users');
 var todo = require('./routes/todo');
+var todohistory = require('./routes/todohistory')
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/tags', tags);
 app.use('/categories', categories);
 app.use('/users', users);
 app.use('/todo', todo);
+app.use('/todohistory', todohistory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
