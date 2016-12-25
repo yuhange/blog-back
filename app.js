@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require("fs");
+var mongoose = require('./mongoose');
 
 var index = require('./routes/index');
 var post = require('./routes/post');
@@ -49,6 +50,22 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+var Test = require('./database/schemas/Test')
+function insert() {
+    var user = new Test({
+        first : '1'
+    });
+    user.save(function (err, res) {
+        if (err) {
+            console.log("Error:" + err);
+        }
+        else {
+            console.log("Res:" + res);
+        }
+    });
+}
+insert();
 
 // error handler
 app.use(function(err, req, res, next) {
