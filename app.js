@@ -5,7 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require("fs");
-var mongoose = require('./mongoose');
+
+// var mongoose = require('./mongoose');
 
 var index = require('./routes/index');
 var post = require('./routes/post');
@@ -13,7 +14,8 @@ var tags = require('./routes/tags');
 var categories = require('./routes/categories');
 var users = require('./routes/users');
 var todo = require('./routes/todo');
-var todohistory = require('./routes/todohistory')
+var todohistory = require('./routes/todohistory');
+var leetcode = require('./routes/leetcode');
 
 var app = express();
 
@@ -43,29 +45,13 @@ app.use('/categories', categories);
 app.use('/users', users);
 app.use('/todo', todo);
 app.use('/todohistory', todohistory);
-
+app.use('/leetcode', leetcode);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
-var Test = require('./database/schemas/Test')
-function insert() {
-    var user = new Test({
-        first : '1'
-    });
-    user.save(function (err, res) {
-        if (err) {
-            console.log("Error:" + err);
-        }
-        else {
-            console.log("Res:" + res);
-        }
-    });
-}
-insert();
 
 // error handler
 app.use(function(err, req, res, next) {
