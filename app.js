@@ -16,6 +16,7 @@ var users = require('./routes/users');
 var todo = require('./routes/todo');
 var todohistory = require('./routes/todohistory');
 var leetcode = require('./routes/leetcode');
+var leetcode_question = require('./routes/leetcode-question');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/users', users);
 app.use('/todo', todo);
 app.use('/todohistory', todohistory);
 app.use('/leetcode', leetcode);
+app.use('/leetcode/leetcode-question', leetcode_question);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
