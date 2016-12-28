@@ -17,6 +17,8 @@ var todo = require('./routes/todo');
 var todohistory = require('./routes/todohistory');
 var leetcode = require('./routes/leetcode');
 var leetcode_question = require('./routes/leetcode-question');
+var poems = require('./routes/poems')
+var poem = require('./routes/poem')
 
 var app = express();
 
@@ -48,6 +50,8 @@ app.use('/todo', todo);
 app.use('/todohistory', todohistory);
 app.use('/leetcode', leetcode);
 app.use('/leetcode/leetcode-question', leetcode_question);
+app.use('/poems', poems)
+app.use('/poem', poem)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
