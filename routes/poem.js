@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3');
 
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
-  var db = new sqlite3.Database('c:/poem.db');
+  var db = new sqlite3.Database('e:/poem.db');
   db.all(  
     'SELECT * FROM poem WHERE _id='+id,  
     function (err, results, fields) {  

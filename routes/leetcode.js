@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   var client = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'w868433',
+    password : '',
     port: '3306',
     database: 'leetcode',
   });

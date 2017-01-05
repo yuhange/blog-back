@@ -1,11 +1,12 @@
-var sqlite3 = require('sqlite3');  
+var sqlite3 = require('sqlite3').verbose();  
 var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  var db = new sqlite3.Database('c:/poem.db');
+  var db = new sqlite3.Database('e:/poem.db');
   var data = [];
-  db.all("select * from poem limit 400",function(err,results){  
+  var queryCondition = '宋代';
+  db.all("select * from poem where zuozhe='李白' limit 100",function(err,results){  
     if(!err) {
       for(var i = 0; i < results.length; i++) {
           var object = {
@@ -15,7 +16,7 @@ router.get('/', function(req, res, next) {
             dynasty: results[i].chaodai,
             // difficulty: results[i].difficulty
           }
-          // console.log(i+": %d\t%s\t%s", results[i].id, results[i].ques_id, results[i].ques_title);
+          // console.log(i+": %d\t%s\t%s", results[i]._id, results[i].chaodai, results[i].zuozhe);
           // console.log(object)
           data.push(object)
       }
